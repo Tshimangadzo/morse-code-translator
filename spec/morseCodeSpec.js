@@ -1,15 +1,15 @@
-const morsecode = require("../src/morsecode");
+const morseCode = require("../src/morseCode");
 
-describe("Letters to morsecode function", () => {
+describe("Letters to morse code function", () => {
   it("Should convert letters to morse code", () => {
     const letters = "hello, world";
-    const morseCode = ".... . .-.. .-.. --- --..-- / .-- --- .-. .-.. -..";
-    expect(morsecode.lettersToMorseCode(letters)).toBe(morseCode);
+    const morseCodes = ".... . .-.. .-.. --- --..-- / .-- --- .-. .-.. -..";
+    expect(morseCode.lettersToMorseCode(letters)).toBe(morseCodes);
   });
 
   it("Should throw error for invalid letters", () => {
     const letters = "helloß Ø world";
-    expect(() => morsecode.lettersToMorseCode(letters)).toThrow(
+    expect(() => morseCode.lettersToMorseCode(letters)).toThrow(
       "Letters contains 'ß Ø' character(s).",
     );
   });
@@ -18,7 +18,7 @@ describe("Letters to morsecode function", () => {
 describe("Morse code to letters function", () => {
   it("Should convert morse code to letters", () => {
     expect(
-      morsecode.morseCodeToLetters(
+      morseCode.morseCodeToLetters(
         ".... . .-.. .-.. --- --..-- / .-- --- .-. .-.. -..",
       ),
     ).toBe("hello, world");
@@ -26,7 +26,7 @@ describe("Morse code to letters function", () => {
 
   it("Should throw error for invalid morse code", () => {
     const morse = ".... . .-..a .-.. --- !--..-- / .-- --- .-. Z.-.. -..";
-    expect(() => morsecode.morseCodeToLetters(morse)).toThrow(
+    expect(() => morseCode.morseCodeToLetters(morse)).toThrow(
       "Morse code contains 'a ! Z' character(s).",
     );
   });
@@ -37,13 +37,13 @@ describe("Is same number of character function", () => {
   it("Should return true for same number of character", () => {
     const output =
       "- .-. ..- . / -. ..- -- -... . .-. / --- ..-. / -.-. .... .- .-. .- -.-. - . .-.";
-    expect(morsecode.isSameNumberOfCharacter(input, output)).toBe(true);
+    expect(morseCode.isSameNumberOfCharacter(input, output)).toBe(true);
   });
 
   it("Should return false for different number of character", () => {
     const output =
       "- .-. ..- . / -. ..- -- -... . .-. / --- ..-. ";
-    expect(morsecode.isSameNumberOfCharacter(input, output)).toBe(false);
+    expect(morseCode.isSameNumberOfCharacter(input, output)).toBe(false);
   });
    
   
@@ -54,7 +54,7 @@ describe("Is same number of character function", () => {
   it("Should console assert for different number of character", () => {
     const output =
       "- .-. ..- . / -. ..- -- -... . .-. / --- ..-. / -.-. .... .- .-.";
-      morsecode.isSameNumberOfCharacter(input, output);
+      morseCode.isSameNumberOfCharacter(input, output);
     expect(console.assert).toHaveBeenCalled();
   });
 });
@@ -64,13 +64,13 @@ describe("Is right number of spaces function", () => {
   it("Should return true for equal number of spaces", () => {
     const output =
       "- .-. ..- . / -. ..- -- -... . .-. / --- ..-. / ... .--. .- -.-. . ...";
-    expect(morsecode.isRightNumberOfSpaces(input, output)).toBe(true);
+    expect(morseCode.isRightNumberOfSpaces(input, output)).toBe(true);
   });
 
   it("Should return false for different number of spaces", () => {
     const output =
       "- .-. ..- . -. ..- -- -... . .-. --- ..-. / ... .--. .- -.-. . ...";
-    expect(morsecode.isRightNumberOfSpaces(input, output)).toBe(false);
+    expect(morseCode.isRightNumberOfSpaces(input, output)).toBe(false);
   });
   
   beforeEach(function(){
@@ -80,26 +80,26 @@ describe("Is right number of spaces function", () => {
   it("Should console assert for different number of spaces", () => {
     const output =
       "- .-. ..- . / -. ..- -- -... . .-. --- ..-.  ... .--. .- -.-. . ...";
-      morsecode.isRightNumberOfSpaces(input, output)
+      morseCode.isRightNumberOfSpaces(input, output)
     expect(console.assert).toHaveBeenCalled();
   });
 });
 
 describe("Is valid letters function", () => {
   it("Should return true if letters are valid", () => {
-    expect(morsecode.isValidLetters("Some letter").isValid).toBe(true);
+    expect(morseCode.isValidLetters("Some letter").isValid).toBe(true);
   });
 
   it("Should return false if letters are invalid", () => {
-    expect(morsecode.isValidLetters("SomeßØ letter").isValid).toBe(false);
+    expect(morseCode.isValidLetters("SomeßØ letter").isValid).toBe(false);
   });
 });
 
 describe("Is valid morse code fucntion", () => {
   it("Should return true if morse code is valid", () => {
-    expect(morsecode.isValidMorseCode(".. / --.").isValid).toBe(true);
+    expect(morseCode.isValidMorseCode(".. / --.").isValid).toBe(true);
   });
   it("Should return false if morse code is invalid", () => {
-    expect(morsecode.isValidMorseCode(".. a / h--.").isValid).toBe(false);
+    expect(morseCode.isValidMorseCode(".. a / h--.").isValid).toBe(false);
   });
 });

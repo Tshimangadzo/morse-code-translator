@@ -1,5 +1,4 @@
 const morseCodes = require("./codes")
-console.log(morseCodes)
 
 const isValidLetters = (letters) => {
   const validate = { isValid: true, errCharacter: "" };
