@@ -13,10 +13,6 @@
   #explanation {
     width: 50%;
   }
-  #streak {
-    cursor: default;
-    pointer-events: none;
-  }
   
   #notes {
     display: flex;
@@ -24,6 +20,11 @@
     flex-wrap: wrap;
     width: 100%;
   }
+
+#answer{
+    width: 100%;
+}
+
   
   @media screen and (max-width: 600px) {
     .card {
@@ -37,6 +38,9 @@
     #streak,
     #answerBtn {
       margin-top: 10px;
+    }
+    #select_option{
+    margin-top: 20px;
     }
   
     img {
