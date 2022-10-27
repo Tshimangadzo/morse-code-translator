@@ -21,8 +21,15 @@
     width: 100%;
   }
 
-#answer{
+#input_text{
     width: 100%;
+}
+#outputs{
+    margin-top: 20px;
+    text-align: center;
+}
+#output{
+    font-size: xx-large;
 }
 
   
